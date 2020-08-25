@@ -3,7 +3,10 @@ package com.cookpad.android.minicookpad.recipesend
 import com.cookpad.android.minicookpad.recipelist.RecipeListContract
 
 interface RecipeSendContract {
-    interface View
+    interface View{
+        fun renderRecipeList(recipeList:List<RecipeSendContract.Recipe>)
+        fun renderError(exception: Throwable)
+    }
 
     interface Interactor{
         fun sendRecipe(onSuccess: (List<Recipe>) -> Unit, onFailed: (Throwable) -> Unit)
